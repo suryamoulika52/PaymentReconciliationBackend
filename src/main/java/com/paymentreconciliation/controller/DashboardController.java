@@ -6,7 +6,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/dashboard")
-@CrossOrigin(origins = "*")
+
+    @CrossOrigin(
+    origins = {
+        "http://localhost:5173",
+        "https://payment-reconciliation-frontend-mauve.vercel.app"
+    }
+)
 public class DashboardController {
 
     private final ReconciliationService reconciliationService;

@@ -12,7 +12,13 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/settlements")
-@CrossOrigin(origins = "*")
+
+    @CrossOrigin(
+    origins = {
+        "http://localhost:5173",
+        "https://payment-reconciliation-frontend-mauve.vercel.app"
+    }
+)
 public class SettlementController {
 
     private final SettlementService settlementService;
