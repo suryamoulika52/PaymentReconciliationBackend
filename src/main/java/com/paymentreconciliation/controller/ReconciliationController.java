@@ -18,7 +18,13 @@ import com.paymentreconciliation.service.ReconciliationService;
 
 @RestController
 @RequestMapping("/api/reconciliation")
-@CrossOrigin(origins = "*")
+
+    @CrossOrigin(
+    origins = {
+        "http://localhost:5173",
+        "https://payment-reconciliation-frontend-mauve.vercel.app"
+    }
+)
 public class ReconciliationController {
 
     private final ReconciliationService reconciliationService;
