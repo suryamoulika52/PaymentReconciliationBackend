@@ -19,71 +19,49 @@ import jakarta.validation.Valid;
     origins = {
         "http://localhost:5173",
         "https://payment-reconciliation-frontend-mauve.vercel.app",
-        "https://payment-reconciliation-fron-git-84ebb4-suryamoulika52s-projects.vercel.app"
+        "https://payment-reconciliation-fron-git-84ebd4-suryamoulika52-projects.vercel.app"
     }
 )
 public class TransactionController {
 
     private final TransactionService transactionService;
 
-    public TransactionController(
-            TransactionService transactionService
-    ) {
+    public TransactionController(TransactionService transactionService) {
         this.transactionService = transactionService;
     }
 
-
     @PostMapping
-    public ResponseEntity<TransactionResponse>
-    createTransaction(
-            @Valid @RequestBody TransactionRequest request
-    ) {
+    public ResponseEntity<TransactionResponse> createTransaction(
+            @Valid @RequestBody TransactionRequest request) {
 
         return ResponseEntity.ok(
-                transactionService
-                        .createTransaction(request)
+                transactionService.createTransaction(request)
         );
     }
 
-
     @GetMapping
-    public ResponseEntity<List<Transaction>>
-    getAllTransactions() {
-
+    public ResponseEntity<List<Transaction>> getAllTransactions() {
         return ResponseEntity.ok(
                 transactionService.getAllTransactions()
         );
     }
 
-
     @GetMapping("/{transactionId}")
-    public ResponseEntity<Transaction>
-    getTransaction(
-            @PathVariable String transactionId
-    ) {
+    public ResponseEntity<Transaction> getTransaction(
+            @PathVariable String transactionId) {
 
         return ResponseEntity.ok(
-                transactionService
-                        .getTransactionByTransactionId(
-                                transactionId
-                        )
+                transactionService.getTransactionByTransactionId(transactionId)
         );
     }
 
-
     @PutMapping("/{transactionId}/status")
-    public ResponseEntity<Transaction>
-    updateTransactionStatus(
+    public ResponseEntity<Transaction> updateTransactionStatus(
             @PathVariable String transactionId,
-            @RequestParam("status")
-            TransactionStatus status
-    ) {
+            @RequestParam("status") TransactionStatus status) {
 
         return ResponseEntity.ok(
-                transactionService.updateStatus(
-                        transactionId,
-                        status
-                )
+                transactionService.updateStatus(transactionId, status)
         );
     }
 }
