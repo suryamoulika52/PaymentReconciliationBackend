@@ -19,7 +19,7 @@ public class CorsConfig {
         config.setAllowedOrigins(List.of(
             "http://localhost:5173",
             "https://payment-reconciliation-frontend-mauve.vercel.app",
-            "https://payment-reconciliation-frontend-git-84eb4-suryamoulika52s-projects.vercel.app"
+            "https://payment-reconciliation-fron-git-84ebd4-suryamoulika52-projects.vercel.app"
         ));
 
         config.setAllowedMethods(List.of(
